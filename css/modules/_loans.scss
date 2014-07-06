@@ -1,0 +1,5 @@
+.loans {
+    @include e(loan) {
+        margin: 10px 5px;
+    }
+}

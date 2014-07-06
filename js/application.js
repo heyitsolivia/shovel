@@ -1,5 +1,5 @@
 (function (Modernizr) {
-    var angularApp = 'YourProject',
+    var angularApp = 'shovel',
         commonProduction = ['/dist/common.min.js'],
         indexProduction = ['/dist/index.min.js'],
         appProduction = ['/dist/app.min.js'],
@@ -14,7 +14,9 @@
         indexDependencies = [
             'vendor/jquery.unveil.min', 'vendor/bootstrap'
         ],
-        appDependencies = [];
+        appDependencies = [
+            'controllers/loansCtrl', 'services/payoffCalculator'
+        ];
 
     for (i = 0; i < commonDependencies.length; i++) {
         commonDependencies[i] = '/js/vendor/' + commonDependencies[i] + '.js';

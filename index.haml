@@ -5,11 +5,31 @@
 %html{ id: 'ng-app', 'xmlns:ng' => 'http://angularjs.org' }
     %head
         = render 'partials/head'
-    %body
+    %body{ ng: { controller: 'loansCtrl' } }
         %p.browsehappy<
             You are using an
             %span outdated
             browser. Please
             %a{ href: 'http://whatbrowser.org' } upgrade your browser.
 
-        Hello World!
+        %div
+            Monthly payment
+            %input{ type: 'number', placeholder: 'Monthly Payment', ng: { model: 'amount' } }
+
+        %div
+            %input{ type: 'radio', name: 'paymentType', value: 'avalanche', ng: { model: 'paymentType' } } Avalanche
+            %input{ type: 'radio', name: 'paymentType', value: 'snowball', ng: { model: 'paymentType' } } Snowball
+        .loans
+            .loans--loan{ ng: { repeat: 'loan in loans' } }
+                {{ loan.id }}
+                %form.form-inline{ role: 'form' }
+                    .form-group
+                        %input.form-control{ type: 'text', placeholder: 'Loan Name', ng: { model: 'loan.name' } }
+                    .form-group
+                        %input.form-control{ type: 'number', placeholder: 'Balance', ng: { model: 'loan.balance' } }
+                    .form-group
+                        %input.form-control{ type: 'number', placeholder: 'Minimum Payment', ng: { model: 'loan.minimum' } }
+                    .form-group
+                        %input.form-control{ type: 'number', placeholder: 'Interest', ng: { model: 'loan.interest' } }
+                .geomicon-circle-min{ ng: { click: 'removeLoan($index)' } }
+        .geomicon-circle-max{ ng: { click: 'addLoan()' } }

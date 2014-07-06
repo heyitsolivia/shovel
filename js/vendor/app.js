@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('YourProject', [
+angular.module('shovel', [
 
     // Include all Angular dependencies
     'ngAnimate',

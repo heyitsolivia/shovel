@@ -1,10 +1,13 @@
 @import 'mixins/animations';
 @import 'mixins/fonts';
 @import 'mixins/polyfills';
+@import 'mixins/module-naming';
 
 @import 'bootstrap_overrides';
 @import 'bootstrap';
 @import 'geomicons';
+
+@import 'modules/loans';
 
 .browsehappy {
     @include make-sm-column(8);
