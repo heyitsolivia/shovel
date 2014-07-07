@@ -32,7 +32,7 @@ module.exports = function(grunt) {
                 tasks: ['haml']
             },
             sass: {
-                files: ['**/*.sass'],
+                files: ['**/*.scss'],
                 tasks: ['sass']
             },
         },
