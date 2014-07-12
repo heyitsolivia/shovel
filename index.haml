@@ -33,4 +33,7 @@
                     .form-group
                         %input.form-control{ type: 'number', placeholder: 'Interest', ng: { model: 'loan.interest' } }
                 .geomicon-circle-min{ ng: { click: 'removeLoan($index)' } }
+
+        %loan-chart{ loans: 'payments' }
+
         .geomicon-circle-max{ ng: { click: 'addLoan()' } }

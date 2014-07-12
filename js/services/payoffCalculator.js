@@ -22,7 +22,6 @@ angular.module('shovel')
 
                 hasRemainingLoans = !_.all(loans, { balance: 0 });
                 payoffDate.add('months', 1);
-                console.warn(payoffDate.format('l'));
 
                 if (payoffDate.isAfter(payoffLimit)) {
                     hasRemainingLoans = false;
@@ -30,9 +29,15 @@ angular.module('shovel')
             }
 
             console.warn('debt free by ' + payoffDate.format('l'));
-            console.dir(payments);
 
-            return payments;
+            return _.reduce(payments, function (result, payment, id) {
+                result.push({
+                    id: id,
+                    name: _.find(startingLoans, { id: id }).name,
+                    payments: payment
+                });
+                return result;
+            }, []);
         }
 
         /**

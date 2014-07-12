@@ -8,14 +8,14 @@
         i;
 
     var commonDependencies = [
-            'common', 'jquery', 'angular.min', 'angular-animate.min', 'angular-resource.min',
+            'common', 'd3.min', 'jquery', 'angular.min', 'angular-animate.min', 'angular-resource.min',
             'angular-sanitize.min', 'angular-spinner', 'app'
         ],
         indexDependencies = [
             'vendor/jquery.unveil.min', 'vendor/bootstrap'
         ],
         appDependencies = [
-            'controllers/loansCtrl', 'services/payoffCalculator'
+            'controllers/loansCtrl', 'services/payoffCalculator', 'directives/loanChart'
         ];
 
     for (i = 0; i < commonDependencies.length; i++) {

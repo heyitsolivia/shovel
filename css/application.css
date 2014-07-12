@@ -7726,6 +7726,18 @@ button.close {
   margin: 10px 5px;
 }
 
+.loan-chart .axis path,
+.loan-chart .axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges; }
+.loan-chart .x.axis path {
+  display: none; }
+.loan-chart .line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px; }
+
 .browsehappy {
   position: relative;
   min-height: 1px;

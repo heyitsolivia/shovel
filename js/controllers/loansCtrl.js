@@ -3,6 +3,8 @@
 angular.module('shovel')
     .controller('loansCtrl', function ($scope, PayoffCalculator) {
 
+        var debouncedCalculate = _.debounce(updateCalculations, 750);
+
         $scope.amount = '';
         $scope.paymentType = 'avalanche';
         $scope.loans = [];
@@ -16,11 +18,14 @@ angular.module('shovel')
             $scope.loans.push({ id: _.uniqueId() });
         };
 
-        $scope.$watch('loans', _.debounce(updateCalculations, 750), true);
+        $scope.$watchCollection('[paymentType, amount]', debouncedCalculate);
+        $scope.$watch('loans', debouncedCalculate, true);
 
         function updateCalculations() {
             var loans = _.filter($scope.loans, isLoanFilled),
-                totalMinimum;
+                sortedLoans,
+                totalMinimum,
+                payments;
 
             if (_.isEmpty(loans)) {
                 return;
@@ -36,7 +41,13 @@ angular.module('shovel')
                 }
             }
 
-            PayoffCalculator.calculate(loans, $scope.amount);
+            sortedLoans = $scope.paymentType === 'avalanche' ?
+                _(loans).sortBy('interest').reverse().value() :
+                _.sortBy(loans, 'balance');
+
+            $scope.payments = PayoffCalculator.calculate(sortedLoans, $scope.amount);
+
+            $scope.$apply();
         }
 
         function isLoanFilled(loan) {
@@ -59,5 +70,8 @@ angular.module('shovel')
         }
 
         $scope.addLoan();
-
+        $scope.loans[0].name = 'something';
+        $scope.loans[0].balance = 3092.39;
+        $scope.loans[0].minimum = 40.41;
+        $scope.loans[0].interest = 6.55;
     });
