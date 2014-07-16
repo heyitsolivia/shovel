@@ -110,3 +110,21 @@
 label {
     font-weight: normal;
 }
+.protip {
+    position: relative;
+    width: 225px;
+    float: right;
+    top: 0;
+    color: white;
+    font-weight: 100;
+    margin: 25px;
+
+    .heading {
+        text-transform: uppercase;
+        font-size: 80%;
+        color: white;
+        margin-bottom: 5px;
+        display: inline-block;
+        font-weight: bold;
+    }
+}
