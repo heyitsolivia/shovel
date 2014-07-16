@@ -2,7 +2,7 @@
     .axis path,
     .axis line {
         fill: none;
-        stroke: #000;
+        stroke: #fff;
         shape-rendering: crispEdges;
     }
 
@@ -12,7 +12,10 @@
 
     .line {
         fill: none;
-        stroke: steelblue;
+        stroke: #fff;
         stroke-width: 1.5px;
+    }
+    text {
+        fill: #fff;
     }
 }

@@ -25,16 +25,26 @@
     <span>outdated</span>
     browser. Please
     <a href='http://whatbrowser.org'>upgrade your browser.</a></p>
-    <div class='jumbotron'>
-      <h1>Shovel: Dig your way out of debt</h1>
+    <div class='header'>
+      <span>
+        Shovel | Dig your way out of debt
+      </span>
     </div>
-    <div>
-      Monthly payment
+    <div class='graph-main'>
+      Monthly Payment
       <input ng-model='amount' placeholder='Monthly Payment' type='number'>
-    </div>
-    <div>
-      <input name='paymentType' ng-model='paymentType' type='radio' value='avalanche'>Avalanche</input>
-      <input name='paymentType' ng-model='paymentType' type='radio' value='snowball'>Snowball</input>
+      <!-- %div -->
+      <label class='control radio'>
+        <input name='paymentType' ng-model='paymentType' type='radio' value='avalanche'>
+        <span class='control-indicator'></span>
+        Avalanche
+      </label>
+      <label class='control radio'>
+        <input name='paymentType' ng-model='paymentType' type='radio' value='snowball'>
+        <span class='control-indicator'></span>
+        Snowball
+      </label>
+      <loan-chart loans='payments'></loan-chart>
     </div>
     <div class='loans'>
       <div class='loans--loan' ng-repeat='loan in loans'>
@@ -56,7 +66,9 @@
         <div class='geomicon-circle-min' ng-click='removeLoan($index)'></div>
       </div>
     </div>
-    <loan-chart loans='payments'></loan-chart>
-    <div class='geomicon-circle-max' ng-click='addLoan()'></div>
+    <div class='geomicon-circle-max' ng-click='addLoan()'>
+      <div class='geomicon-circle-min' ng-click='removeLoan($index)'>Remove</div>
+    </div>
+    <div class='geomicon-circle-max' ng-click='addLoan()'>Add Loan</div>
   </body>
 </html>

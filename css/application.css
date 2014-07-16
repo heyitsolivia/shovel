@@ -1,4 +1,5 @@
 /*! normalize.css v3.0.0 | MIT License | git.io/normalize */
+@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic);
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -1142,7 +1143,7 @@ html {
 }
 
 body {
-  font-family: "proxima-nova", helvetica, arial, sans-serif;
+  font-family: "lato", helvetica, arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857;
   color: #333333;
@@ -4878,41 +4879,45 @@ a.list-group-item.active > .badge,
   margin-left: 3px;
 }
 
-.jumbotron {
+.jumbotron, .header, .graph-main {
   padding: 30px;
   margin-bottom: 30px;
   color: inherit;
   background-color: #eeeeee;
 }
-.jumbotron h1,
-.jumbotron .h1 {
+.jumbotron h1, .header h1, .graph-main h1,
+.jumbotron .h1,
+.header .h1,
+.graph-main .h1 {
   color: inherit;
 }
-.jumbotron p {
+.jumbotron p, .header p, .graph-main p {
   margin-bottom: 15px;
   font-size: 21px;
   font-weight: 200;
 }
-.jumbotron > hr {
+.jumbotron > hr, .header > hr, .graph-main > hr {
   border-top-color: #d5d5d5;
 }
-.container .jumbotron {
+.container .jumbotron, .container .header, .container .graph-main {
   border-radius: 3px;
 }
-.jumbotron .container {
+.jumbotron .container, .header .container, .graph-main .container {
   max-width: 100%;
 }
 @media screen and (min-width: 768px) {
-  .jumbotron {
+  .jumbotron, .header, .graph-main {
     padding-top: 48px;
     padding-bottom: 48px;
   }
-  .container .jumbotron {
+  .container .jumbotron, .container .header, .container .graph-main {
     padding-left: 60px;
     padding-right: 60px;
   }
-  .jumbotron h1,
-  .jumbotron .h1 {
+  .jumbotron h1, .header h1, .graph-main h1,
+  .jumbotron .h1,
+  .header .h1,
+  .graph-main .h1 {
     font-size: 63px;
   }
 }
@@ -7723,20 +7728,26 @@ button.close {
 }
 
 .loans--loan {
-  margin: 10px 5px;
+  margin: 10px;
 }
 
 .loan-chart .axis path,
 .loan-chart .axis line {
   fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges; }
+  stroke: #fff;
+  shape-rendering: crispEdges;
+}
 .loan-chart .x.axis path {
-  display: none; }
+  display: none;
+}
 .loan-chart .line {
   fill: none;
-  stroke: steelblue;
-  stroke-width: 1.5px; }
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+.loan-chart text {
+  fill: #fff;
+}
 
 .browsehappy {
   position: relative;
@@ -7773,7 +7784,70 @@ button.close {
   display: block;
 }
 
-.jumbotron {
-  background: #0088ce;
+.header {
+  background: #eee;
+  color: #333;
+  margin: 0;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.graph-main {
+  margin: 0;
+  background-color: #333;
+  background: url(https://s3.amazonaws.com/ooomf-com-files/2wu8LKZQfahkG6HMeKf6_14546548685_aea346dd84_o.jpg);
+  background-size: cover;
+  background-position: center center;
+}
+.graph-main input {
+  color: #333;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  padding: 5px 8px;
+}
+
+.control {
+  position: relative;
+  display: inline-block;
+  padding-right: 20px;
+  color: #555;
+  cursor: pointer;
+}
+
+.control input {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+
+.radio input:checked ~ .control-indicator {
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgOCA4IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA4IDgiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTQsMUMyLjMsMSwxLDIuMywxLDRzMS4zLDMsMywzczMtMS4zLDMtM1M1LjcsMSw0LDF6Ii8+DQo8L3N2Zz4NCg==);
+}
+
+.control input:checked ~ .control-indicator {
   color: #fff;
+  background-color: #0074d9;
+}
+
+.radio .control-indicator {
+  border-radius: 50%;
+}
+
+.control-indicator {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  display: block;
+  width: 16px;
+  height: 16px;
+  color: #eee;
+  text-align: center;
+  background-color: #eee;
+  background-size: 50% 50%;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+label {
+  font-weight: normal;
 }

@@ -11,15 +11,24 @@
             %span outdated
             browser. Please
             %a{ href: 'http://whatbrowser.org' } upgrade your browser.
-        .jumbotron
-            %h1 Shovel: Dig your way out of debt
-        %div
-            Monthly payment
+        .header
+            %span 
+                Shovel | Dig your way out of debt
+        .graph-main
+            Monthly Payment
             %input{ type: 'number', placeholder: 'Monthly Payment', ng: { model: 'amount' } }
+            / %div
+            %label.control.radio
+                %input{ type: 'radio', name: 'paymentType', value: 'avalanche', ng: { model: 'paymentType' } }
+                %span.control-indicator
+                Avalanche
+            %label.control.radio                
+                %input{ type: 'radio', name: 'paymentType', value: 'snowball', ng: { model: 'paymentType' } }
+                %span.control-indicator
+                Snowball
 
-        %div
-            %input{ type: 'radio', name: 'paymentType', value: 'avalanche', ng: { model: 'paymentType' } } Avalanche
-            %input{ type: 'radio', name: 'paymentType', value: 'snowball', ng: { model: 'paymentType' } } Snowball
+            %loan-chart{ loans: 'payments' }
+
         .loans
             .loans--loan{ ng: { repeat: 'loan in loans' } }
                 {{ loan.id }}
@@ -34,6 +43,8 @@
                         %input.form-control{ type: 'number', placeholder: 'Interest', ng: { model: 'loan.interest' } }
                 .geomicon-circle-min{ ng: { click: 'removeLoan($index)' } }
 
-        %loan-chart{ loans: 'payments' }
+        
 
         .geomicon-circle-max{ ng: { click: 'addLoan()' } }
+            .geomicon-circle-min{ ng: { click: 'removeLoan($index)' } } Remove
+        .geomicon-circle-max{ ng: { click: 'addLoan()' } } Add Loan

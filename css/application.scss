@@ -10,6 +10,8 @@
 @import 'modules/loans';
 @import 'modules/loan-chart';
 
+@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic);
+
 .browsehappy {
     @include make-sm-column(8);
     @include make-sm-column-offset(12);
@@ -42,7 +44,69 @@
     }
 }
 
-.jumbotron {
-    background: #0088ce;
+.header {
+    @extend .jumbotron;
+    background: #eee;
+    color: #333;
+    margin: 0;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.graph-main {
+    @extend .jumbotron;
+    margin: 0;
+    background-color: #333;
+    background: url(https://s3.amazonaws.com/ooomf-com-files/2wu8LKZQfahkG6HMeKf6_14546548685_aea346dd84_o.jpg);
+    background-size: cover;
+    background-position: center center;
+    input {
+        color: #333;
+        border-radius: 3px;
+        border: 1px solid #ccc;
+        padding: 5px 8px;
+    }
+}
+.control {
+    position: relative;
+    display: inline-block;
+    padding-right: 20px;
+    color: #555;
+    cursor: pointer;
+}
+.control input {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+}
+
+.radio input:checked ~ .control-indicator {
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgOCA4IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA4IDgiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTQsMUMyLjMsMSwxLDIuMywxLDRzMS4zLDMsMywzczMtMS4zLDMtM1M1LjcsMSw0LDF6Ii8+DQo8L3N2Zz4NCg==);
+}
+
+.control input:checked ~ .control-indicator {
     color: #fff;
+    background-color: #0074d9;
+}
+
+.radio .control-indicator {
+    border-radius: 50%;
+}
+.control-indicator {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    display: block;
+    width: 16px;
+    height: 16px;
+    color: #eee;
+    text-align: center;
+    background-color: #eee;
+    background-size: 50% 50%;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+label {
+    font-weight: normal;
 }
